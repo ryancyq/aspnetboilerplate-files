@@ -41,8 +41,8 @@ namespace Abp.Tests.Push
             _distributor.UnitOfWorkManager.Current.Returns(Substitute.For<IActiveUnitOfWork>());
 
             var _settingManager = Substitute.For<ISettingManager>();
-            _settingManager.GetSettingValueForUserAsync(Arg.Any<string>(), Arg.Any<int?>(), Arg.Any<long>())
-                           .ReturnsForAnyArgs("true");
+            _settingManager.GetSettingValueForUser(Arg.Any<string>(), Arg.Any<int?>(), Arg.Any<long>())
+                           .Returns("true");
             _distributor.SettingManager = _settingManager;
         }
 
